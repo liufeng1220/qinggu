@@ -1,14 +1,16 @@
 package co.liufeng.edu.service.impl;
 
 import co.liufeng.edu.entity.Subject;
+import co.liufeng.edu.listener.UploadDataListener;
 import co.liufeng.edu.mapper.SubjectMapper;
 import co.liufeng.edu.service.SubjectService;
-import com.alibaba.excel.read.builder.ExcelReaderBuilder;
-import com.alibaba.excel.read.builder.ExcelReaderSheetBuilder;
+import com.alibaba.excel.EasyExcel;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,6 +23,8 @@ import java.util.List;
  */
 @Service
 public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> implements SubjectService {
+    @Autowired
+    private SubjectMapper subjectMapper;
     /**
      * 存入excel数据到数据库
      * @param file
@@ -29,10 +33,8 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
      */
     @Override
     public List<String> batchImport(MultipartFile file) throws Exception {
-        //创建一个excel对象
-        ExcelReaderBuilder excelReaderBuilder = new ExcelReaderBuilder();
-        ExcelReaderSheetBuilder excelReaderSheetBuilder = new ExcelReaderSheetBuilder();
-        excelReaderBuilder.autoCloseStream()
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
+        EasyExcel.read(file.getInputStream(),new HashMap<Integer, String>().getClass(),new UploadDataListener(subjectMapper)).sheet().doRead();
         return null;
     }
 }
