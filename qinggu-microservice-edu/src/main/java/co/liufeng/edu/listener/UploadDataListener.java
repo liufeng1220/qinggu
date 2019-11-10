@@ -5,36 +5,32 @@ package co.liufeng.edu.listener;
  * @date 2019/11/10 15:01
  */
 
+import co.liufeng.edu.entity.DemoData;
 import co.liufeng.edu.mapper.SubjectMapper;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.event.AnalysisEventListener;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 // 有个很重要的点 DemoDataListener 不能被spring管理，要每次读取excel都要new,然后里面用到spring可以构造方法传进去
-@Slf4j
-public class UploadDataListener extends AnalysisEventListener<Map<Integer, String>> {
+public class UploadDataListener extends AnalysisEventListener<DemoData> {
+
     /**
      * 每隔5条存储数据库，实际使用中可以3000条，然后清理list ，方便内存回收
      */
     private static final int BATCH_COUNT = 5;
-    List<Map<Integer, String>> list = new ArrayList<Map<Integer, String>>();
-    /**
-     * 假设这个是一个DAO，当然有业务逻辑这个也可以是一个service。当然如果不用存储这个对象没用。
-     */
-    private SubjectMapper subjectMapper;
+    public SubjectMapper subjectMapper;
+    List<DemoData> list = new ArrayList<DemoData>();
+    public UploadDataListener(SubjectMapper subjectMapper){
+        this.subjectMapper = subjectMapper;
+    }
 
     /**
      * 如果使用了spring,请使用这个构造方法。每次创建Listener的时候需要把spring管理的类传进来
      *
-     * @param subjectMapper
+     * @param demoDAO
      */
-    public UploadDataListener(SubjectMapper subjectMapper) {
-        this.subjectMapper = subjectMapper;
-    }
 
     /**
      * 这个每一条数据解析都会来调用
@@ -43,11 +39,15 @@ public class UploadDataListener extends AnalysisEventListener<Map<Integer, Strin
      * @param context
      */
     @Override
-    public void invoke(Map<Integer, String> data, AnalysisContext context) {
+    public void invoke(DemoData data, AnalysisContext context) {
+        //   LOGGER.info("解析到一条数据:{}", JSON.toJSONString(data));
         list.add(data);
+        // 达到BATCH_COUNT了，需要去存储一次数据库，防止数据几万条数据在内存，容易OOM
         if (list.size() >= BATCH_COUNT) {
-            // saveData();
             System.out.println(list);
+            System.out.println(list);
+            saveData();
+            // 存储完成清理 list
             list.clear();
         }
     }
@@ -60,8 +60,16 @@ public class UploadDataListener extends AnalysisEventListener<Map<Integer, Strin
     @Override
     public void doAfterAllAnalysed(AnalysisContext context) {
         // 这里也要保存数据，确保最后遗留的数据也存储到数据库
-        //saveData();
-        log.info("所有数据解析完成！");
+        saveData();
+        //  LOGGER.info("所有数据解析完成！");
     }
 
+    /**
+     * 加上存储数据库
+     */
+    private void saveData() {
+        // LOGGER.info("{}条数据，开始存储数据库！", list.size());
+        //demoDAO.save(list);
+        // LOGGER.info("存储数据库成功！");
+    }
 }

@@ -1,5 +1,6 @@
 package co.liufeng.edu.entity;
 
+import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
@@ -23,7 +24,8 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("edu_subject")
-@ApiModel(value="Subject对象", description="课程科目")
+@ApiModel(value = "Subject对象", description = "课程科目")
+@ExcelIgnoreUnannotated
 public class Subject implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,6 +50,5 @@ public class Subject implements Serializable {
     @ApiModelProperty(value = "更新时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
 
 }
