@@ -18,6 +18,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+    /**
+     * 路径上没有admin，error的进入课程中心
+     * @return
+     */
     @Bean
     public Docket webApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
@@ -27,7 +31,12 @@ public class Swagger2Config {
                 .paths(Predicates.not(PathSelectors.regex("/admin/.*")))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build();
-    }
+}
+
+    /**
+     * 路径上有admin的进入后台
+     * @return
+     */
     @Bean
     public Docket adminApiConfig(){
         return new Docket(DocumentationType.SWAGGER_2)
@@ -37,6 +46,8 @@ public class Swagger2Config {
                 .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
                 .build();
     }
+
+
     private ApiInfo webApiInfo(){
         return new ApiInfoBuilder()
                 .title("网站-课程中心API文档")
