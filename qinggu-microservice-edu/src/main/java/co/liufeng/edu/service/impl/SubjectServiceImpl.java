@@ -1,6 +1,6 @@
 package co.liufeng.edu.service.impl;
 
-import co.liufeng.edu.entity.DemoData;
+import co.liufeng.edu.dto.ExcelData;
 import co.liufeng.edu.entity.Subject;
 import co.liufeng.edu.listener.UploadDataListener;
 import co.liufeng.edu.mapper.SubjectMapper;
@@ -37,7 +37,8 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
     @Override
     public List<String> batchImport(MultipartFile file) throws Exception {
         HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
-        EasyExcel.read(file.getInputStream(), DemoData.class, new UploadDataListener(subjectMapper)).sheet().doRead();
+
+        EasyExcel.read(file.getInputStream(), ExcelData.class, new UploadDataListener(subjectMapper)).sheet().doRead();
         return null;
     }
 }
