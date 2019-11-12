@@ -1,6 +1,7 @@
 package co.liufeng.edu.service;
 
 import co.liufeng.edu.entity.Subject;
+import co.liufeng.edu.vo.SubjectVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,4 +18,6 @@ import java.util.List;
 public interface SubjectService extends IService<Subject> {
     //保存一级分类到数据库
     List<String> batchImport(MultipartFile file) throws Exception;
+    //查询主题信息
+    List<SubjectVo> listSubjectVo();
 }

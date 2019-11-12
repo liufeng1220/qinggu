@@ -107,21 +107,24 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectMapper, Subject> impl
 
     /**
      * 树形查询
+     *
      * @return
      */
     @Override
     public List<SubjectVo> listSubjectVo() {
-        //查询所有根节点数据
         List<SubjectVo> subjectVos = new ArrayList<SubjectVo>();
-        QueryWrapper<Subject> wrapper = new QueryWrapper<>();
-        wrapper.eq("parent_id", "0");
-        List<Subject> subjects = baseMapper.selectList(wrapper);
+        //1.查询所有根节点数据
+        List<Subject> subjects = baseMapper.selectList(new QueryWrapper<Subject>().eq("parent_id", "0"));
+        //2.遍历跟节点对象
         for (int i = 0; i < subjects.size(); i++) {
-            QueryWrapper<Subject> queryWrapper = new QueryWrapper<>();
-            queryWrapper.eq("parent_id", subjects.get(i).getId());
-            List<Subject> subjects1 = baseMapper.selectList(queryWrapper);
-
-            subjectVos.add(new SubjectVo(subjects.get(i).getId(), subjects.get(i).getTitle(),subjects1));
+            //3.根据根节点id查询得到对应跟节点的子节数据。
+            List<Subject> subjects1 = baseMapper.selectList(new QueryWrapper<Subject>().eq("parent_id", subjects.get(i).getId()));
+            List<SubjectVo> list = new ArrayList<>();
+            for (Subject subject : subjects1) {
+                list.add(new SubjectVo(subject.getParentId(),subject.getTitle(),null));
+            }
+            //4.将根节点以及根节点对应的子节点封装成vo对象返回。
+            subjectVos.add(new SubjectVo(subjects.get(i).getId(), subjects.get(i).getTitle(), list));
         }
         return subjectVos;
 
