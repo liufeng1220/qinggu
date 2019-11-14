@@ -15,7 +15,13 @@
     <dependencies>
         <dependency>
             <groupId>co.liufeng</groupId>
+            <artifactId>qinggu-framework-domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>co.liufeng</groupId>
             <artifactId>qinggu-framework-common</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>

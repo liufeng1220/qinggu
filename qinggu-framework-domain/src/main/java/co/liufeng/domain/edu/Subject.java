@@ -1,22 +1,18 @@
-package co.liufeng.edu.entity;
+package co.liufeng.domain.edu;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <p>
- * 课程
+ * 课程科目
  * </p>
  *
  * @author Refeily
@@ -25,23 +21,24 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("edu_chapter")
-@ApiModel(value="Chapter对象", description="课程")
-public class Chapter implements Serializable {
+@TableName("edu_subject")
+@ApiModel(value = "Subject对象", description = "课程科目")
+public class Subject implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "章节ID")
+    @ApiModelProperty(value = "课程类别ID")
+
     @TableId(value = "id", type = IdType.ID_WORKER_STR)
     private String id;
 
-    @ApiModelProperty(value = "课程ID")
-    private String courseId;
-
-    @ApiModelProperty(value = "章节名称")
+    @ApiModelProperty(value = "类别名称")
     private String title;
 
-    @ApiModelProperty(value = "显示排序")
+    @ApiModelProperty(value = "父ID")
+    private String parentId;
+
+    @ApiModelProperty(value = "排序字段")
     private Integer sort;
 
     @ApiModelProperty(value = "创建时间")
@@ -51,6 +48,5 @@ public class Chapter implements Serializable {
     @ApiModelProperty(value = "更新时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
 
 }

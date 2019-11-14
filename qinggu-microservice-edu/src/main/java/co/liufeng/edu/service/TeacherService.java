@@ -1,6 +1,6 @@
 package co.liufeng.edu.service;
 
-import co.liufeng.edu.entity.Teacher;
+import co.liufeng.domain.edu.Teacher;
 import co.liufeng.edu.query.TeacherQuery;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;

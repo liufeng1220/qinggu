@@ -1,6 +1,6 @@
 package co.liufeng.edu.service.impl;
 
-import co.liufeng.edu.entity.Teacher;
+import co.liufeng.domain.edu.Teacher;
 import co.liufeng.edu.mapper.TeacherMapper;
 import co.liufeng.edu.query.TeacherQuery;
 import co.liufeng.edu.service.TeacherService;

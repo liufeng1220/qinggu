@@ -3,7 +3,7 @@ package co.liufeng.edu.controller.admin;
 import co.liufeng.common.constants.ResultCodeEnum;
 import co.liufeng.common.exception.QingguException;
 import co.liufeng.common.vo.R;
-import co.liufeng.edu.entity.Subject;
+import co.liufeng.domain.edu.Subject;
 import co.liufeng.edu.service.SubjectService;
 import co.liufeng.edu.vo.SubjectVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;

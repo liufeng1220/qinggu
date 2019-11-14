@@ -1,6 +1,6 @@
 package co.liufeng.edu.service;
 
-import co.liufeng.edu.entity.Subject;
+import co.liufeng.domain.edu.Subject;
 import co.liufeng.edu.vo.SubjectVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;

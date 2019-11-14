@@ -1,6 +1,6 @@
 package co.liufeng.statistics.service.impl;
 
-import co.liufeng.statistics.entity.Daily;
+import co.liufeng.domain.statistics.Daily;
 import co.liufeng.statistics.mapper.DailyMapper;
 import co.liufeng.statistics.service.DailyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

@@ -1,6 +1,6 @@
 package co.liufeng.ucenter.service;
 
-import co.liufeng.ucenter.entity.Member;
+import co.liufeng.domain.ucenter.Member;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

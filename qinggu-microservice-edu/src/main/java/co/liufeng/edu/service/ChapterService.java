@@ -1,6 +1,6 @@
 package co.liufeng.edu.service;
 
-import co.liufeng.edu.entity.Chapter;
+import co.liufeng.domain.edu.Chapter;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

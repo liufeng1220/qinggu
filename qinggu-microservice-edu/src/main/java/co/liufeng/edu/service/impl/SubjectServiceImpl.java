@@ -1,7 +1,7 @@
 package co.liufeng.edu.service.impl;
 
 import co.liufeng.common.util.ExcelImportUtil;
-import co.liufeng.edu.entity.Subject;
+import co.liufeng.domain.edu.Subject;
 import co.liufeng.edu.mapper.SubjectMapper;
 import co.liufeng.edu.service.SubjectService;
 import co.liufeng.edu.vo.SubjectVo;

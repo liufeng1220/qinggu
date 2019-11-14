@@ -1,6 +1,6 @@
 package co.liufeng.statistics.mapper;
 
-import co.liufeng.statistics.entity.Daily;
+import co.liufeng.domain.statistics.Daily;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

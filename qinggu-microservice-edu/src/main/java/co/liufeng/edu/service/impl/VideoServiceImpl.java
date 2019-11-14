@@ -1,6 +1,6 @@
 package co.liufeng.edu.service.impl;
 
-import co.liufeng.edu.entity.Video;
+import co.liufeng.domain.edu.Video;
 import co.liufeng.edu.mapper.VideoMapper;
 import co.liufeng.edu.service.VideoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

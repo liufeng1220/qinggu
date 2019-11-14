@@ -1,6 +1,6 @@
 package co.liufeng.edu.service.impl;
 
-import co.liufeng.edu.entity.Course;
+import co.liufeng.domain.edu.Course;
 import co.liufeng.edu.mapper.CourseMapper;
 import co.liufeng.edu.service.CourseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

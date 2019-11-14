@@ -1,4 +1,4 @@
-package co.liufeng.edu.entity;
+package co.liufeng.domain.edu;
 
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;

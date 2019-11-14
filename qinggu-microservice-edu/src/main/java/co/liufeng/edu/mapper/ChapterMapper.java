@@ -1,6 +1,6 @@
 package co.liufeng.edu.mapper;
 
-import co.liufeng.edu.entity.Chapter;
+import co.liufeng.domain.edu.Chapter;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

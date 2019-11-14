@@ -1,4 +1,4 @@
-package co.liufeng.edu.entity;
+package co.liufeng.domain.edu;
 
 import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
@@ -22,7 +22,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("edu_video")
-@ApiModel(value="Video对象", description="课程视频")
+@ApiModel(value = "Video对象", description = "课程视频")
 public class Video implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -76,6 +76,5 @@ public class Video implements Serializable {
     @ApiModelProperty(value = "更新时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
-
 
 }

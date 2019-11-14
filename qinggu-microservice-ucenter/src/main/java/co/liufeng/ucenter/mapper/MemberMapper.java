@@ -1,6 +1,6 @@
 package co.liufeng.ucenter.mapper;
 
-import co.liufeng.ucenter.entity.Member;
+import co.liufeng.domain.ucenter.Member;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

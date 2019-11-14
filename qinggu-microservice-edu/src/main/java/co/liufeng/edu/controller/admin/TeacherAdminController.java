@@ -3,7 +3,7 @@ package co.liufeng.edu.controller.admin;
 import co.liufeng.common.constants.ResultCodeEnum;
 import co.liufeng.common.exception.QingguException;
 import co.liufeng.common.vo.R;
-import co.liufeng.edu.entity.Teacher;
+import co.liufeng.domain.edu.Teacher;
 import co.liufeng.edu.query.TeacherQuery;
 import co.liufeng.edu.service.TeacherService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

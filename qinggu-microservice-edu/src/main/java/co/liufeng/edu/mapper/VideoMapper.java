@@ -1,6 +1,6 @@
 package co.liufeng.edu.mapper;
 
-import co.liufeng.edu.entity.Video;
+import co.liufeng.domain.edu.Video;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

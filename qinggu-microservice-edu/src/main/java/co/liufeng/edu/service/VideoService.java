@@ -1,6 +1,6 @@
 package co.liufeng.edu.service;
 
-import co.liufeng.edu.entity.Video;
+import co.liufeng.domain.edu.Video;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
