@@ -16,6 +16,10 @@
 
     <artifactId>qinggu-microservice-edu</artifactId>
     <dependencies>
+      <!--  <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        </dependency>
         <dependency>
             <groupId>co.liufeng</groupId>
             <artifactId>qinggu-framework-domain</artifactId>
@@ -26,14 +30,19 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Spring Boot End -->
-        <!-- Spring Cloud Begin -->
+        &lt;!&ndash; Spring Boot End &ndash;&gt;
+        &lt;!&ndash; Spring Cloud Begin &ndash;&gt;
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- Spring Cloud End -->
         <!--xls-->
+        <dependency>
+            <groupId>co.liufeng</groupId>
+            <artifactId>qinggu-framework-domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>

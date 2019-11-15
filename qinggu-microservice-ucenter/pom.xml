@@ -12,6 +12,33 @@
 
     <artifactId>qinggu-microservice-ucenter</artifactId>
     <dependencies>
+        <!-- Apache Dubbo Begin -->
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.dubbo</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-registry-nacos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.spring</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
+        <!-- Apache Dubbo End -->
+        <dependency>
+            <groupId>co.liufeng</groupId>
+            <artifactId>qinggu-common-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
         <dependency>
             <groupId>co.liufeng</groupId>
             <artifactId>qinggu-framework-domain</artifactId>

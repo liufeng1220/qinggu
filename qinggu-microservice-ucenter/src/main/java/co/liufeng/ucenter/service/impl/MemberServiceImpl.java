@@ -4,7 +4,7 @@ import co.liufeng.domain.ucenter.Member;
 import co.liufeng.ucenter.mapper.MemberMapper;
 import co.liufeng.ucenter.service.MemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+import org.apache.dubbo.config.annotation.Service;
 
 /**
  * <p>
@@ -18,6 +18,10 @@ import org.springframework.stereotype.Service;
 public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> implements MemberService {
     @Override
     public Integer countRegisterByDay(String day) {
-        return baseMapper.selectRegisterCount(day);
+        System.out.println("来了，哥哥");
+        int i = Integer.parseInt(day);
+        Integer integer = baseMapper.selectRegisterCount(i);
+        System.out.println("打印"+integer);
+        return integer;
     }
 }
