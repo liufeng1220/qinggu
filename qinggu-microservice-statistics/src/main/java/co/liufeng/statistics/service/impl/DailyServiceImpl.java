@@ -10,6 +10,11 @@ import org.apache.commons.lang3.RandomUtils;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  * 网站统计日数据 服务实现类
@@ -41,5 +46,46 @@ public class DailyServiceImpl extends ServiceImpl<DailyMapper, Daily> implements
         daily.setCourseNum(courseNum);
         daily.setDateCalculated(day);
         baseMapper.insert(daily);
+    }
+
+    /**
+     * 图表
+     * @param begin
+     * @param end
+     * @param type
+     * @return
+     */
+    @Override
+    public Map<String, Object> getChartData(String begin, String end, String type) {
+        QueryWrapper<Daily> dayQueryWrapper = new QueryWrapper<>();
+        dayQueryWrapper.select(type, "date_calculated");
+        dayQueryWrapper.between("date_calculated", begin, end);
+        List<Daily> dayList = baseMapper.selectList(dayQueryWrapper);
+        Map<String, Object> map = new HashMap<>();
+        List<Integer> dataList = new ArrayList<Integer>();
+        List<String> dateList = new ArrayList<String>();
+        map.put("dataList", dataList);
+        map.put("dateList", dateList);
+        for (int i = 0; i < dayList.size(); i++) {
+            Daily daily = dayList.get(i);
+            dateList.add(daily.getDateCalculated());
+            switch (type) {
+                case "register_num":
+                    dataList.add(daily.getRegisterNum());
+                    break;
+                case "login_num":
+                    dataList.add(daily.getLoginNum());
+                    break;
+                case "video_view_num":
+                    dataList.add(daily.getVideoViewNum());
+                    break;
+                case "course_num":
+                    dataList.add(daily.getCourseNum());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return map;
     }
 }

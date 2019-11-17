@@ -21,3 +21,7 @@ call mvn install
 cd ..
 cd qinggu-microservice-ucenter
 call mvn install
+
+cd ..
+cd qinggu-microservice-statistics
+call mvn install

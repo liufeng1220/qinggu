@@ -21,3 +21,7 @@ call mvn clean
 cd ..
 cd qinggu-microservice-ucenter
 call mvn clean
+
+cd ..
+cd qinggu-microservice-statistics
+call mvn clean
